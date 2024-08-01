@@ -41,10 +41,15 @@ import java.io.Serializable;
 public class Customer implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
+    @Id // clé primaire de la table relationnelle
     @Basic(optional = false)
     @NotNull
-    @Column(name = "CUSTOMER_ID")
+    /**
+     // @Column  indique le nom de la colonne de la table qui correspond à chaque champ de la classe. 
+     * Cette annotation pourrait aussi contenir d'autres informations sur la colonne ; 
+     * par exemple, une autre définition que la définition par défaut si la table est créée
+     */
+    @Column(name = "CUSTOMER_ID") 
     private Integer customerId;
     @Basic(optional = false)
     @NotNull
@@ -81,8 +86,8 @@ public class Customer implements Serializable {
     @Column(name = "CREDIT_LIMIT")
     private Integer creditLimit;
     @JoinColumn(name = "DISCOUNT_CODE", referencedColumnName = "CODE")
-    @ManyToOne(optional = false)
-    private Discount discountCode;
+    @ManyToOne(optional = false) //  traduisent pour JPA les associations entre les tables relationnelles
+    private Discount discount; // modification du code discountCode en discount
 
     public Customer() {
     }
@@ -184,12 +189,12 @@ public class Customer implements Serializable {
         this.creditLimit = creditLimit;
     }
 
-    public Discount getDiscountCode() {
-        return discountCode;
+    public Discount getDiscount() { // Modification de la methode getDiscountCode() en getDiscount()
+        return discount;
     }
 
-    public void setDiscountCode(Discount discountCode) {
-        this.discountCode = discountCode;
+    public void setDiscount(Discount discount) { // Modification de la methode setDiscountCode() en setDiscount()
+        this.discount = discount;
     }
 
     @Override
