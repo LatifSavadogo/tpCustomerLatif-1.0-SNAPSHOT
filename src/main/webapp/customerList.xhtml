@@ -2,12 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="jakarta.faces.html"
-      xmlns:f="jakarta.faces.core">
+      xmlns:f="jakarta.faces.core"
+      xmlns:c="jakarta.tags.core">
     <h:head>
         <title>Liste des clients</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        Liste des clients
         
         <!-- Cette table a 2 colonnes pour l'id et le nom des customers.  -->
         <!-- value de la table désigne ce qui va être affiché dans la table -->
@@ -20,7 +21,7 @@
                 <f:facet name="header">
                     <h:outputText value="Id" />
                 </f:facet>
-                <h:outputText value="#{item.customerId}"
+                <h:outputText value="#{item.customerId}"/>
             </h:column>
             
             <h:column>
@@ -28,6 +29,20 @@
                     <h:outputText value="Nom" />
                 </f:facet>
                 <h:outputText value="#{item.name}" />
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Ville" />
+                </f:facet>
+                <h:outputText value="#{item.city}" />
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Email" />
+                </f:facet>
+                <h:outputText value="#{item.email}" />
             </h:column>
         </h:dataTable>
     </h:body>
