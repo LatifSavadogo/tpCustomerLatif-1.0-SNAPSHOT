@@ -39,6 +39,8 @@ public class CustomerManager {
     /**
      *  *  @Transactional car on va modifier la base de donnée 
      * et toute modification doit être obligatoirement faite dans une transaction
+     * @param customer
+     * @return 
      * */
     @Transactional
     public Customer upate(Customer customer){
