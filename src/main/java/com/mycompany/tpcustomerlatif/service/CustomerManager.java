@@ -43,7 +43,7 @@ public class CustomerManager {
      *
      */
     @Transactional
-    public Customer upate(Customer customer) {
+    public Customer update(Customer customer) {
         return em.merge(customer);
     }
 
@@ -56,7 +56,5 @@ public class CustomerManager {
         return em.find(Customer.class, idCustomer);
     }
 
-    public Customer update(Customer customer) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 }
