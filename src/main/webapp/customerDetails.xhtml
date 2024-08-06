@@ -9,49 +9,134 @@
         <f:viewAction action="#{customerDetailsBean.loadCustomer}"/>
     </f:metadata>
     <h:head>
-        <title>Facelet Title</title>
+        <title>Modification d'un customer</title>
+        <style>
+            /* General body styles */
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f5f5f5;
+                margin: 0;
+                padding: 0;
+            }
+
+            /* Center and style the form container */
+            h:panelGrid {
+                background-color: #ffffff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                margin: 20px auto;
+                max-width: 800px;
+            }
+
+            /* Style form labels */
+            h:outputLabel {
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 5px;
+                display: block;
+            }
+
+            /* Style input fields */
+            h:inputText, h:selectOneMenu {
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 10px;
+                width: 100%;
+                box-sizing: border-box; /* Ensure padding and border are included in width */
+                margin-bottom: 15px; /* Space between fields */
+            }
+
+            /* Style the submit and back buttons */
+            h:commandButton, h:button {
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                padding: 10px 20px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background-color 0.3s ease;
+                margin-top: 10px; /* Space between buttons */
+            }
+
+            h:commandButton:hover, h:button:hover {
+                background-color: #0056b3;
+            }
+
+            /* Style for messages */
+            h:messages {
+                color: #d9534f;
+                font-size: 14px;
+                margin-top: 15px;
+            }
+
+            /* Style headers */
+            h1 {
+                color: #333;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+
+
+        </style>
     </h:head>
     <h:body>
         <f:view>
             <h:form>
-                <h1><h:outputText value="Create/Edit"/></h1>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="CustomerId:" for="customerId" />
-                    <h:inputText id="customerId"  readonly="true" value="#{customerDetailsBean.customer.customerId}" title="CustomerId" required="true" requiredMessage="The CustomerId field is required."/>
-                    <h:outputLabel value="Zip:" for="zip" />
-                    <h:inputText id="zip" value="#{customerDetailsBean.customer.zip}" title="Zip" required="true" requiredMessage="The Zip field is required."/>
-                    <h:outputLabel value="Name:" for="name" />
-                    <h:inputText id="name" value="#{customerDetailsBean.customer.name}" title="Name" />
-                    <h:outputLabel value="Addressline1:" for="addressline1" />
-                    <h:inputText id="addressline1" value="#{customerDetailsBean.customer.addressline1}" title="Addressline1" />
-                    <h:outputLabel value="Addressline2:" for="addressline2" />
-                    <h:inputText id="addressline2" value="#{customerDetailsBean.customer.addressline2}" title="Addressline2" />
-                    <h:outputLabel value="City:" for="city" />
-                    <h:inputText id="city" value="#{customerDetailsBean.customer.city}" title="City" />
-                    <h:outputLabel value="State:" for="state" />
-                    <h:inputText id="state" value="#{customerDetailsBean.customer.state}" title="State" />
-                    <h:outputLabel value="Phone:" for="phone" />
-                    <h:inputText id="phone" value="#{customerDetailsBean.customer.phone}" title="Phone" />
-                    <h:outputLabel value="Fax:" for="fax" />
-                    <h:inputText id="fax" value="#{customerDetailsBean.customer.fax}" title="Fax" />
-                    <h:outputLabel value="Email:" for="email" />
-                    <h:inputText id="email" value="#{customerDetailsBean.customer.email}" title="Email" />
-                    <h:outputLabel value="CreditLimit:" for="creditLimit" />
-                    <h:inputText id="creditLimit" value="#{customerDetailsBean.customer.creditLimit}" title="CreditLimit" />
-                    <h:outputLabel value="Discount:" for="discount" />
-                    <h:selectOneMenu id="discount" value="#{customerDetailsBean.customer.discount}" title="Discount" required="true" requiredMessage="The Discount field is required."  converter="discountConverter">
+                <h1>Editer/Modifier</h1>
+                <h:panelGrid columns="2" styleClass="form-container">
+                    <h:outputLabel value="CustomerId:" for="customerId"/>
+                    <h:inputText id="customerId" readonly="true" value="#{customerDetailsBean.customer.customerId}"
+                                 title="CustomerId" required="true" requiredMessage="The CustomerId field is required"/>
+
+                    <h:outputLabel value="Zip:" for="zip"/>
+                    <h:inputText id="zip" value="#{customerDetailsBean.customer.zip}" title="Zip" required="true"
+                                 requiredMessage="The Zip field is required"/>
+
+                    <h:outputLabel value="Name:" for="name"/>
+                    <h:inputText id="name" value="#{customerDetailsBean.customer.name}" title="Name"/>
+
+                    <h:outputLabel value="Addressline1:" for="addressline1"/>
+                    <h:inputText id="addressline1" value="#{customerDetailsBean.customer.addressline1}" title="Addressline1"/>
+
+                    <h:outputLabel value="Addressline2:" for="addressline2"/>
+                    <h:inputText id="addressline2" value="#{customerDetailsBean.customer.addressline2}" title="Addressline2"/>
+
+                    <h:outputLabel value="City:" for="city"/>
+                    <h:inputText id="city" value="#{customerDetailsBean.customer.city}" title="City"/>
+
+                    <h:outputLabel value="State:" for="state"/>
+                    <h:inputText id="state" value="#{customerDetailsBean.customer.state}" title="State"/>
+
+                    <h:outputLabel value="Phone:" for="phone"/>
+                    <h:inputText id="phone" value="#{customerDetailsBean.customer.phone}" title="Phone"/>
+
+                    <h:outputLabel value="Fax:" for="fax"/>
+                    <h:inputText id="fax" value="#{customerDetailsBean.customer.fax}" title="Fax"/>
+
+                    <h:outputLabel value="Email:" for="email"/>
+                    <h:inputText id="email" value="#{customerDetailsBean.customer.email}" title="Email"/>
+
+                    <h:outputLabel value="CreditLimit:" for="creditLimit"/>
+                    <h:inputText id="creditLimit" value="#{customerDetailsBean.customer.creditLimit}" title="CreditLimit"/>
+
+                    <h:outputLabel value="Discount:" for="discount"/>
+                    <h:selectOneMenu id="discount" value="#{customerDetailsBean.customer.discount}" title="Discount"
+                                     required="true" requiredMessage="The Discount field is required."
+                                     converter="discountConverter">
                         <f:selectItems value="#{customerDetailsBean.discounts}"
                                        var="discount"
-                                       itemLabel="#{discount.code} (#{discount.rate} %)" 
+                                       itemLabel="#{discount.code} (#{discount.rate} %)"
                                        itemValue="#{discount}"/>
                     </h:selectOneMenu>
+
                     <h:button id="back" value="Revenir à la liste" outcome="customerList"/>
                     <h:commandButton id="update" value="Enregistrer" action="#{customerDetailsBean.update}"/>
-
                 </h:panelGrid>
                 <h:messages/>
             </h:form>
         </f:view>
-
     </h:body>
 </html>

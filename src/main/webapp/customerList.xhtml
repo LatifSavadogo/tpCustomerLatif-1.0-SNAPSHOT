@@ -12,10 +12,13 @@
                 width: 100%;
                 box-sizing: border-box;
             }
+            h1 {
+                text-align:center;
+            }
         </style>
     </h:head>
     <h:body>
-        <h1 style="text-align:center">Liste des clients</h1>
+        <h1>Liste des clients</h1>
 
         <!-- Cette table a 2 colonnes pour l'id et le nom des customers.  -->
         <!-- value de la table désigne ce qui va être affiché dans la table -->
@@ -32,9 +35,14 @@
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
                 <f:facet name="header">
                     <p:outputPanel>
-                        <h:outputText value="Recherche dans tous les champs de recherche"/>
+                        <h:outputText style="
+                                      text-align:center;
+                                      margin-left: 35%" value="Recherche dans tous les champs de recherche"/>
                         <p:inputText id="globalFilter" onkeyup="PF('customerTable').filter()"
-                                     style="width:150px"/>
+                                     style="
+                                     width:150px; float: center; 
+                                     display: flex;
+                                     margin-left: 40%"/>
                     </p:outputPanel>
                 </f:facet>
 
