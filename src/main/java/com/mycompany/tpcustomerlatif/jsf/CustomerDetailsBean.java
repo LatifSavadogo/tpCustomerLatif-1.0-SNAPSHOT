@@ -7,6 +7,7 @@ package com.mycompany.tpcustomerlatif.jsf;
 import com.mycompany.tpcustomerlatif.entity.Customer;
 import com.mycompany.tpcustomerlatif.entity.Discount;
 import com.mycompany.tpcustomerlatif.service.CustomerManager;
+import com.mycompany.tpcustomerlatif.service.DiscountManager;
 import jakarta.inject.Named;
 //import jakarta.enterprise.context.Dependent;
 import jakarta.faces.view.ViewScoped;
@@ -28,6 +29,9 @@ public class CustomerDetailsBean implements Serializable {
 
     @Inject
     private CustomerManager customerManager;
+    
+    @Inject
+    private DiscountManager discountManager; 
 
     public int getIdCustomer() {
         return idCustomer;
@@ -40,8 +44,9 @@ public class CustomerDetailsBean implements Serializable {
     /**
      * Retourne les details du client courant(contenu dans l'attribut customer
      * de cette classe) Creates a new instance of CustomerDetailsBean
+     *
+     * @return
      */
-
     public Customer getCustomer() {
         return customer;
     }
@@ -66,6 +71,8 @@ public class CustomerDetailsBean implements Serializable {
 
     /**
      * Retourne la liste de tous les Discount.
+     *
+     * @return
      */
     public List<Discount> getDiscounts() {
         return discountManager.getAllDiscounts();

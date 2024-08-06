@@ -23,13 +23,13 @@ import java.util.List;
 @RequestScoped
 public class DiscountManager {
 
-    public List<Discount> getAllDiscounts() {
-        Query query = em.createNamedQuery("Discounts.findAll");
-        return query.getResultList();
-    }
-
     @PersistenceContext(unitName = "discountPU")
     private EntityManager em;
+    
+    public List<Discount> getAllDiscounts() {
+        Query query = em.createNamedQuery("Discount.findAll");
+        return query.getResultList();
+    }
 
     @Transactional
     public Discount update(Discount discount) {
@@ -41,6 +41,8 @@ public class DiscountManager {
     }
 
     /**
-     * Creates a new instance of DiscountManager
+     * Crée une nouvelle instance de DiscountManager
      */
+    public DiscountManager() {
+    }
 }
